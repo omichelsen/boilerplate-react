@@ -1,0 +1,26 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "node": true
+  },
+  "globals": {
+    "expect": false,
+    "sinon": false
+  },
+  "rules": {
+    "arrow-parens": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"],
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": ["!**/config/", "**/*.spec.js"]
+    }],
+    "indent": ["error", "tab", {"SwitchCase": 1}],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-tabs": 0,
+    "react/jsx-indent": ["error", "tab"],
+    "react/jsx-indent-props": ["error", "tab"],
+    "react/require-default-props": 0,
+    "semi": ["error", "never"]
+  }
+}

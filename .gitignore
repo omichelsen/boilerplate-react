@@ -1,0 +1,5 @@
+.nyc_output/
+.tmp/
+coverage/
+node_modules/
+public/

@@ -1,0 +1,15 @@
+{
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.nyc_output": true,
+    "**/.svn": true,
+    "**/.tmp": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/coverage": true,
+    "**/public": true
+  }
+}
