@@ -1,15 +1,10 @@
-const chai = require('chai')
-const chaiAsPromised = require('chai-as-promised')
-const sinonChai = require('sinon-chai')
+const enzyme = require('enzyme')
+const Adapter = require('enzyme-adapter-react-16')
 
-chai.use(chaiAsPromised)
-chai.use(sinonChai)
+enzyme.configure({ adapter: new Adapter() });
 
-global.expect = chai.expect
-global.sinon = require('sinon')
-
-const noop = () => {}
-
+// Ignore file imports
+const noop = () => { }
 require.extensions['.css'] = noop
 require.extensions['.less'] = noop
 require.extensions['.ico'] = noop

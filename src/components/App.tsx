@@ -1,5 +1,5 @@
-import React from 'react'
-import Button from './common/Button'
+import * as React from 'react'
+import Button from './common/Button/Button'
 
 export default function App() {
 	return (

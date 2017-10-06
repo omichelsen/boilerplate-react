@@ -4,7 +4,7 @@
   "short_name": "Boilerplate",
   "icons": [
     {
-      "src": "./assets/images/logo.png",
+      "src": "./images/logo.png",
       "sizes": "192x192",
       "type": "image/png"
     }

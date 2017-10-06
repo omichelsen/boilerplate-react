@@ -5,6 +5,7 @@ const { resolve } = require('path')
 
 module.exports = {
 	output: {
+		filename: '[name]-[chunkhash:6].js',
 		path: resolve(__dirname, 'public'),
 	},
 	plugins: [
@@ -19,13 +20,9 @@ module.exports = {
 			safeToUseOptionalCaches: true,
 			ServiceWorker: {
 				events: true,
-				navigateFallbackURL: '/app.html',
 			},
 			AppCache: {
 				events: true,
-				FALLBACK: {
-					'/polls': '/app.html',
-				},
 			},
 		}),
 	],

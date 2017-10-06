@@ -1,12 +1,11 @@
-import offline from 'offline-plugin/runtime'
-import React from 'react'
-import ReactDOM from 'react-dom'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import App from './components/App'
-import './styles/main.less'
 import './styles/index.less'
 
 if (process.env.NODE_ENV === 'production') {
+	const offline = require('offline-plugin/runtime') // tslint:disable-line:no-var-requires
 	offline.install({
 		onUpdateReady: () => offline.applyUpdate(),
 		onUpdated: () => window.location.reload(),
@@ -15,7 +14,7 @@ if (process.env.NODE_ENV === 'production') {
 
 ReactDOM.render(
 	<AppContainer>
-		<App compiler="TypeScript" framework="React" />
+		<App />
 	</AppContainer>,
 	document.getElementById('root')
 )
