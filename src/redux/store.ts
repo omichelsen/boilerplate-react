@@ -1,20 +1,23 @@
 import { applyMiddleware, createStore } from 'redux'
-import * as promise from 'redux-promise'
-import thunk from 'redux-thunk'
+import promiseMiddleware from 'redux-promise-middleware'
+import thunkMiddleware from 'redux-thunk'
 import analytics from './middleware/analytics'
 import rootReducer from './reducers'
 
-const middleware = [thunk, promise, analytics]
+const middleware = [
+	analytics,
+	thunkMiddleware,
+	promiseMiddleware(),
+]
 
 if (process.env.NODE_ENV === 'development') {
-	// tslint:disable-next-line:no-var-requires
-	const { logger } = require('redux-logger')
+	const { logger } = require('redux-logger') // tslint:disable-line:no-var-requires
 	middleware.push(logger)
 }
 
 export default function configureStore(initialState?: any) {
 	return createStore(
-		rootReducer,
+		rootReducer as any,
 		applyMiddleware(...middleware),
 		initialState
 	)

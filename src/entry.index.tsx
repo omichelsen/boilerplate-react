@@ -8,11 +8,7 @@ import './styles/index.less'
 const store = configureStore()
 
 if (process.env.NODE_ENV === 'production') {
-	const offline = require('offline-plugin/runtime') // tslint:disable-line:no-var-requires
-	offline.install({
-		onUpdateReady: () => offline.applyUpdate(),
-		onUpdated: () => window.location.reload(),
-	})
+	import('./services/offline').then((offline) => offline.init())
 }
 
 const compose = (Component: any) => (

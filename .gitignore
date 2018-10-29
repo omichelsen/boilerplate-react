@@ -3,4 +3,5 @@
 coverage/
 node_modules/
 public/
+*.less.d.ts
 stats.json

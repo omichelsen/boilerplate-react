@@ -1,10 +1,20 @@
-import { handleActions } from 'redux-actions'
 import * as authActions from '../actions/auth'
 
-export const defaultState = Object.freeze({
+export const initialState = Object.freeze({
 	authPending: true,
 })
 
-export default handleActions({
-	[authActions.updateUser.toString()]: (state) => ({ ...state, showSignIn: false }),
-}, defaultState)
+export default (
+	state: any = initialState,
+	{ type } = {} as any
+) => {
+	const merge = (obj: any = {}) => ({ ...state, ...obj })
+
+	switch (type) {
+		case String(authActions.updateUser): {
+			return merge({ showSignIn: false })
+		}
+		default:
+			return state
+	}
+}
