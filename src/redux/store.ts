@@ -7,7 +7,7 @@ import rootReducer from './reducers'
 const middleware = [
 	analytics,
 	thunkMiddleware,
-	promiseMiddleware(),
+	promiseMiddleware,
 ]
 
 if (process.env.NODE_ENV === 'development') {
