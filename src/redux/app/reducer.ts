@@ -1,4 +1,4 @@
-import * as authActions from '../actions/auth'
+import * as authActions from './actions'
 
 export const initialState = Object.freeze({
 	authPending: true,

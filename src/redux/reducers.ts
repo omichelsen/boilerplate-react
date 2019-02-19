@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux'
-import * as authActions from '../actions/auth'
-import app from './app'
+import * as appActions from './app/actions'
+import app from './app/reducer'
 
 const appReducer = combineReducers({
 	app,
 })
 
 export default (state: any, action: any) => {
-	if (action.type === authActions.updateUser.toString()) {
+	if (action.type === appActions.updateUser.toString()) {
 		return appReducer(undefined as any, action)
 	}
 
