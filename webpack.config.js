@@ -51,6 +51,7 @@ module.exports = (_, { mode: env = 'development' }) => webpackMerge({
 		new webpack.DefinePlugin({
 			'process.config': JSON.stringify(config[env]),
 		}),
+		new webpack.WatchIgnorePlugin([/\.less\.d\.ts$/]),
 	],
 	devServer: {
 		contentBase: resolve(__dirname, 'src'),
