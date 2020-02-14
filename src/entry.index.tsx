@@ -1,7 +1,9 @@
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
-import Root from './components/Root'
+import React from 'react'
+import { render } from 'react-dom'
+import { hot } from 'react-hot-loader' // eslint-disable-line import/no-extraneous-dependencies
+import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
+import App from './components/App'
 import configureStore from './redux/store'
 import './styles/index.less'
 
@@ -11,24 +13,13 @@ if (process.env.NODE_ENV === 'production') {
 	import('./services/offline').then((offline) => offline.init())
 }
 
-const compose = (Component: any) => (
-	<AppContainer key={Math.random()}>
-		<Component store={store} />
-	</AppContainer>
+const Root = hot(module)(App)
+
+render(
+	<Provider store={store}>
+		<BrowserRouter>
+			<Root />
+		</BrowserRouter>
+	</Provider>,
+	document.getElementById('root')
 )
-
-const render = (Component: any) => {
-	ReactDOM.render(
-		compose(Component),
-		document.getElementById('root')
-	)
-}
-
-render(Root)
-
-if (module.hot) {
-	module.hot.accept('./components/Root', () => {
-		const NextApp = require('./components/Root').default
-		render(NextApp)
-	})
-}

@@ -4,10 +4,7 @@ export const initialState = Object.freeze({
 	authPending: true,
 })
 
-export default (
-	state: any = initialState,
-	{ type } = {} as any
-) => {
+export default (state: any = initialState, { type } = {} as any) => {
 	const merge = (obj: any = {}) => ({ ...state, ...obj })
 
 	switch (type) {

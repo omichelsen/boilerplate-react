@@ -1,6 +1,8 @@
-import * as React from 'react'
+import React from 'react'
 import './Button.less'
 
-export default function Button(props: { children?: any }) {
+const Button: React.FC = (props) => {
 	return <button>{props.children}</button>
 }
+
+export default Button

@@ -1,4 +1,4 @@
-export default (_: any) => (next: any) => (action: any) => {
+export default () => (next: any) => (action: any) => {
 	switch (action.type) {
 		case 'USER_UPDATED':
 		default:
