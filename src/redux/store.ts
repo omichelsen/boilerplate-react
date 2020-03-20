@@ -12,5 +12,9 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 export default function configureStore(initialState?: any) {
-	return createStore(rootReducer as any, applyMiddleware(...middleware), initialState)
+	return createStore(
+		rootReducer as any,
+		applyMiddleware(...middleware),
+		initialState
+	)
 }

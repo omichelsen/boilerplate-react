@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { hot } from 'react-hot-loader' // eslint-disable-line import/no-extraneous-dependencies
+import { hot } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import App from './components/App'

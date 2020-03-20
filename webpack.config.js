@@ -31,7 +31,10 @@ module.exports = (_, { mode: env = 'development' }) => {
 		},
 		output: {
 			filename: env === 'development' ? '[name].js' : '[name]-[chunkhash:6].js',
-			path: env === 'development' ? resolve(__dirname, 'src') : resolve(__dirname, 'public'),
+			path:
+				env === 'development'
+					? resolve(__dirname, 'src')
+					: resolve(__dirname, 'public'),
 			publicPath: '/',
 		},
 		resolve: {
@@ -66,7 +69,8 @@ module.exports = (_, { mode: env = 'development' }) => {
 							options: {
 								importLoaders: 1,
 								modules: {
-									localIdentName: env === 'development' ? '[name]_[local]' : '[hash:base64]',
+									localIdentName:
+										env === 'development' ? '[name]_[local]' : '[hash:base64]',
 								},
 								sourceMap: env === 'development',
 							},
@@ -90,7 +94,8 @@ module.exports = (_, { mode: env = 'development' }) => {
 		},
 		plugins: [
 			new MiniCssExtractPlugin({
-				filename: env === 'development' ? '[name].css' : '[name]-[chunkhash:6].css',
+				filename:
+					env === 'development' ? '[name].css' : '[name]-[chunkhash:6].css',
 			}),
 			new HtmlWebpackPlugin({
 				filename: 'index.html',
